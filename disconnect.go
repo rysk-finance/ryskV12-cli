@@ -2,7 +2,7 @@ package main
 
 import "github.com/urfave/cli/v2"
 
-var diconnectAction = &cli.Command{
+var disconnectAction = &cli.Command{
 	Name: "disconnect",
 	Flags: []cli.Flag{
 		&cli.StringFlag{

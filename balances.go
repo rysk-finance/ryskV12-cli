@@ -6,7 +6,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var balancessAction = &cli.Command{
+var balancesAction = &cli.Command{
 	Name: "balances",
 	Flags: []cli.Flag{
 		&cli.StringFlag{

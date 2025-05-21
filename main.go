@@ -12,9 +12,9 @@ func main() {
 		Name: "ryskV12",
 		Commands: []*cli.Command{
 			approveAction,
-			balancessAction,
+			balancesAction,
 			connectAction,
-			diconnectAction,
+			disconnectAction,
 			positionsAction,
 			quoteAction,
 			transferAction,
