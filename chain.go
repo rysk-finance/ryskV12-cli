@@ -15,6 +15,7 @@ import (
 const (
 	CHAIN_ID_ETH           int = 1
 	CHAIN_ID_BASE          int = 8453
+	CHAIN_ID_HYPE	       int = 999
 	CHAIN_ID_BASE_SEPOLIA  int = 84532
 	CHAIN_ID_HYPE_TESTNET  int = 998
 	CHAIN_ID_MONAD_TESTNET int = 10143
@@ -51,6 +52,11 @@ var ADDRESSES = map[int]Addresses{
 		MarginPool:  common.HexToAddress("0x6EBec8b078464B5d59eCc1c23F7F37e65b75e61f"),
 		MMarket:     common.HexToAddress("0x3D9CB5D2Fa4600bF8d75fB59Fe01Db765dCced15"),
 		StrikeAsset: common.HexToAddress("0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"),
+	},
+	CHAIN_ID_HYPE: {
+		MarginPool:  common.HexToAddress("0x24a44f1dc25540c62c1196FfC297dFC951C91aB4"),
+		MMarket:     common.HexToAddress("0x691a5fc3a81a144e36c6C4fBCa1fC82843c80d0d"),
+		StrikeAsset: common.HexToAddress("0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"),
 	},
 }
 
