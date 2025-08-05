@@ -22,6 +22,7 @@ type Quote struct {
 	Strike       string `json:"strike"`
 	Signature    string `json:"signature"`
 	ValidUntil   int64  `json:"validUntil"`
+	USD          string `json:"usd"`
 }
 
 type QuoteNotification struct {
