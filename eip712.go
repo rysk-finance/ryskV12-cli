@@ -77,6 +77,10 @@ var EIP712_TYPES = &apitypes.Types{
 			Name: "validUntil",
 			Type: "uint64",
 		},
+		{
+			Name: "usd",
+			Type: "address",
+		},
 	},
 	"Transfer": {
 		{
