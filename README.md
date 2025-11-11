@@ -114,7 +114,7 @@ Flags
 - `--chain_id` (**required**): The ID of the blockchain.
 - `--expiry` (**required**): Option expiry timestamp.
 - `--is_put`: present for put, not for call.
-- `--is_taker_buy`: present if maker buys, not if maker sells.
+- `--is_taker_buy`: present if maker sells, not if maker buys.
 - `--maker` (**required**): Address of the quote maker.
 - `--nonce` (**required**): Unique nonce for the quote.
 - `--price` (**required**): Option price.
