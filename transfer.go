@@ -1,6 +1,11 @@
 package main
 
-import "github.com/urfave/cli/v2"
+import (
+	"fmt"
+	"time"
+
+	"github.com/urfave/cli/v2"
+)
 
 var transferAction = &cli.Command{
 	Name:  "transfer",
@@ -30,7 +35,7 @@ var transferAction = &cli.Command{
 			Name:  "is_deposit",
 			Usage: "whether you want to deposit or withdraw",
 		},
-		&cli.StringFlag{
+		&cli.Uint64Flag{
 			Name:     "nonce",
 			Required: true,
 			Usage:    "nonce to sign the message with",
@@ -48,14 +53,13 @@ var transferAction = &cli.Command{
 
 func transfer(c *cli.Context) error {
 	channelID := c.String("channel_id")
-	nonce := c.String("nonce")
 	method := "withdraw"
 	if c.Bool("is_deposit") {
 		method = "deposit"
 	}
 	payload := JsonRPCRequest{
 		JsonRPC: "2.0",
-		ID:      nonce,
+		ID:      fmt.Sprintf("%d", time.Now().Unix()),
 		Method:  method,
 	}
 
@@ -64,7 +68,7 @@ func transfer(c *cli.Context) error {
 		ChainID:   int(c.Int64("chain_id")),
 		Amount:    c.String("amount"),
 		IsDeposit: c.Bool("is_deposit"),
-		Nonce:     nonce,
+		Nonce:     fmt.Sprintf("%d", c.Uint64("nonce")),
 	}
 
 	msgHash, _, err := CreateTransferMessage(t)

@@ -1,6 +1,10 @@
 package main
 
-import "github.com/urfave/cli/v2"
+import (
+	"fmt"
+
+	"github.com/urfave/cli/v2"
+)
 
 var quoteAction = &cli.Command{
 	Name:  "quote",
@@ -39,7 +43,7 @@ var quoteAction = &cli.Command{
 			Name:     "maker",
 			Required: true,
 		},
-		&cli.StringFlag{
+		&cli.Uint64Flag{
 			Name:     "nonce",
 			Required: true,
 		},
@@ -92,7 +96,7 @@ func quote(c *cli.Context) error {
 		IsPut:        c.Bool("is_put"),
 		IsTakerBuy:   c.Bool("is_taker_buy"),
 		Maker:        c.String("maker"),
-		Nonce:        c.String("nonce"),
+		Nonce:        fmt.Sprintf("%d", c.Uint64("nonce")),
 		Price:        c.String("price"),
 		Quantity:     c.String("quantity"),
 		Strike:       c.String("strike"),
