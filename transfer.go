@@ -57,6 +57,7 @@ func transfer(c *cli.Context) error {
 	if c.Bool("is_deposit") {
 		method = "deposit"
 	}
+
 	payload := JsonRPCRequest{
 		JsonRPC: "2.0",
 		ID:      fmt.Sprintf("%d", time.Now().Unix()),
@@ -64,6 +65,7 @@ func transfer(c *cli.Context) error {
 	}
 
 	t := Transfer{
+		User:      c.String("user"),
 		Asset:     c.String("asset"),
 		ChainID:   int(c.Int64("chain_id")),
 		Amount:    c.String("amount"),
