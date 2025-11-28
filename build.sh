@@ -18,7 +18,7 @@ for platform in "${platforms[@]}"; do
   fi
 
   echo "Building for $os/$arch..."
-  GOOS="$os" GOARCH="$arch" go build -o "$output"
+  GOOS="$os" GOARCH="$arch" go build -ldflags="-X 'main.Version=3.0.0'" -o "$output"
   if [ $? -ne 0 ]; then
     echo "Failed to build for $os/$arch"
     exit 1
