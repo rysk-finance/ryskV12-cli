@@ -7,6 +7,9 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+// updated at build time
+var Version = ""
+
 func main() {
 	app := &cli.App{
 		Name: "ryskV12",
@@ -18,6 +21,7 @@ func main() {
 			positionsAction,
 			quoteAction,
 			transferAction,
+			versionAction,
 		},
 	}
 
