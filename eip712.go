@@ -81,8 +81,16 @@ var EIP712_TYPES = &apitypes.Types{
 			Name: "usd",
 			Type: "address",
 		},
+		{
+			Name: "collateralAsset",
+			Type: "address",
+		},
 	},
 	"Transfer": {
+		{
+			Name: "user",
+			Type: "address",
+		},
 		{
 			Name: "asset",
 			Type: "address",

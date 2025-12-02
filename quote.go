@@ -68,6 +68,10 @@ var quoteAction = &cli.Command{
 			Required: true,
 		},
 		&cli.StringFlag{
+			Name:     "collateral",
+			Required: true,
+		},
+		&cli.StringFlag{
 			Name:     "private_key",
 			Required: true,
 			Usage:    "private key to sign messages with",
@@ -102,6 +106,7 @@ func quote(c *cli.Context) error {
 		Strike:       c.String("strike"),
 		ValidUntil:   c.Int64("valid_until"),
 		USD:          c.String("usd"),
+		CollateralAsset: c.String("collateral"),
 	}
 
 	msgHash, _, err := CreateQuoteMessage(q)
