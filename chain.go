@@ -15,7 +15,7 @@ import (
 const (
 	CHAIN_ID_ETH           int = 1
 	CHAIN_ID_BASE          int = 8453
-	CHAIN_ID_HYPE	       int = 999
+	CHAIN_ID_HYPE          int = 999
 	CHAIN_ID_BASE_SEPOLIA  int = 84532
 	CHAIN_ID_HYPE_TESTNET  int = 998
 	CHAIN_ID_MONAD_TESTNET int = 10143
@@ -24,6 +24,7 @@ const (
 type Addresses struct {
 	MarginPool  common.Address
 	MMarket     common.Address
+	Rysk        common.Address
 	StrikeAsset common.Address
 }
 
@@ -34,26 +35,31 @@ type Account struct {
 
 var ADDRESSES = map[int]Addresses{
 	CHAIN_ID_BASE_SEPOLIA: {
+		Rysk:        common.HexToAddress("0x0ff34dd648b68f09b199b60b91442e750fd13fdc"),
 		MarginPool:  common.HexToAddress("0xf0ac2edd8eb37b4ac75a2ed02eeae3a5c6bb8e8e"),
 		MMarket:     common.HexToAddress("0x6d23217cb228f3779f6506b44b1abaa3edf6fc58"),
 		StrikeAsset: common.HexToAddress("0x98d56648c9b7f3cb49531f4135115b5000ab1733"),
 	},
 	CHAIN_ID_MONAD_TESTNET: {
+		Rysk:        common.HexToAddress("0x3b87932046bc3e1bb63c13aba1306f9d398a9cc6"),
 		MarginPool:  common.HexToAddress("0x968d1f9dcda00df7be0bbc0acf3761853d06eb33"),
 		MMarket:     common.HexToAddress("0x0d71dbdb11c35c72fa4a33beec00d5eb1fbcf1c8"),
 		StrikeAsset: common.HexToAddress("0xf817257fed379853cde0fa4f97ab987181b1e5ea"),
 	},
 	CHAIN_ID_HYPE_TESTNET: {
-		MarginPool: common.HexToAddress("0xB586aBB1b69611284A855BAECE6707bf353C035b"),
+		Rysk:        common.HexToAddress("0x0122db8Ed9B9B49F3FD8774d93773C2e2A564E81"),
+		MarginPool:  common.HexToAddress("0xB586aBB1b69611284A855BAECE6707bf353C035b"),
 		MMarket:     common.HexToAddress("0x4bB4dDf8F4588780fe0cD31593bd8f5719eBfefd"),
 		StrikeAsset: common.HexToAddress("0x69E37eCb273a23B8864A5f39520Bf97c6768b65C"),
 	},
 	CHAIN_ID_BASE: {
+		Rysk:        common.HexToAddress("0xe33a517dfef3d582f6eb94276e8d514f835a1401"),
 		MarginPool:  common.HexToAddress("0x6EBec8b078464B5d59eCc1c23F7F37e65b75e61f"),
 		MMarket:     common.HexToAddress("0x3D9CB5D2Fa4600bF8d75fB59Fe01Db765dCced15"),
 		StrikeAsset: common.HexToAddress("0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"),
 	},
 	CHAIN_ID_HYPE: {
+		Rysk:        common.HexToAddress("0x8c8bcb6d2c0e31c5789253ecc8431ca6209b4e35"),
 		MarginPool:  common.HexToAddress("0x24a44f1dc25540c62c1196FfC297dFC951C91aB4"),
 		MMarket:     common.HexToAddress("0x691a5fc3a81a144e36c6C4fBCa1fC82843c80d0d"),
 		StrikeAsset: common.HexToAddress("0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"),

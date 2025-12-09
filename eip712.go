@@ -157,7 +157,7 @@ func createEIP712Domain(chainId int64) *apitypes.TypedDataDomain {
 		Name:              "rysk",
 		Version:           "0.0.0",
 		ChainId:           math.NewHexOrDecimal256(chainId),
-		VerifyingContract: ZeroAddress.String(),
+		VerifyingContract: ADDRESSES[int(chainId)].Rysk.String(),
 	}
 }
 
