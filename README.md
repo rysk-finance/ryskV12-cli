@@ -104,7 +104,7 @@ Endpoints:
 Sends a signed quote for options trading through the WebSocket.
 
 ```bash
-./ryskV12 quote --channel_id <channel_id> --rfq_id <rfq_id> --chain_id <chain_id> --expiry <expiry_timestamp> --is_put --is_taker_buy --maker <maker_address> --nonce <nonce> --price <price> --quantity <quantity> --strike <strike> --valid_until <valid_until_timestamp> --private_key <private_key>
+./ryskV12 quote --channel_id <channel_id> --rfq_id <rfq_id> --chain_id <chain_id> --expiry <expiry_timestamp>  --maker <maker_address> --nonce <nonce> --price <price> --quantity <quantity> --strike <strike> --valid_until <valid_until_timestamp> --collateral <collateral> --private_key <private_key> --is_put --is_taker_buy
 ```
 
 Flags
@@ -116,11 +116,12 @@ Flags
 - `--is_put`: present for put, not for call.
 - `--is_taker_buy`: present if maker sells, not if maker buys.
 - `--maker` (**required**): Address of the quote maker.
-- `--nonce` (**required**): Unique nonce for the quote.
+- `--nonce` (**required**): Unique nonce for the quote (stringified u64).
 - `--price` (**required**): Option price.
 - `--quantity` (**required**): Option quantity.
 - `--strike` (**required**): Option strike price.
 - `--valid_until` (**required**): Quote validity timestamp.
+- `--collateral` (**required**): Accepted collateral asset.
 - `--private_key` (**required**): Private key for signing.
 
 ---
@@ -130,15 +131,16 @@ Flags
 Requests a transfer (deposit or withdrawal) through the WebSocket.
 
 ```bash
-./ryskV12 transfer --channel_id <channel_id> --chain_id <chain_id> --asset <asset_address> --amount <amount> --is_deposit --nonce <nonce> --private_key <private_key>
+./ryskV12 transfer --channel_id <channel_id> --chain_id <chain_id> --user <user_address> --asset <asset_address> --amount <amount> --nonce <nonce> --private_key <private_key> --is_deposit
 ```
 
 Flags
 
 - `--channel_id` (**required**): The unique ID of the WebSocket connection (matches connect --channel_id).
 - `--chain_id` (**required**): The ID of the blockchain for the transfer.
+- `--user` (**required**): THe address of the account executing the deposit.
 - `--asset` (**required**): The address of the asset being transferred.
 - `--amount` (**required**): The amount to transfer.
 - `--is_deposit`: present if deposit, not for withdrawal.
-- `--nonce` (**required**): A unique nonce for signing.
+- `--nonce` (**required**): A unique nonce for signing (stringified u64).
 - `--private_key` (**required**): The private key for signing.
