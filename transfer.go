@@ -27,6 +27,11 @@ var transferAction = &cli.Command{
 			Usage:    "asset address",
 		},
 		&cli.StringFlag{
+			Name:     "user",
+			Required: true,
+			Usage:    "user address",
+		},
+		&cli.StringFlag{
 			Name:     "amount",
 			Required: true,
 			Usage:    "amount to deposit",
