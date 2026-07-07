@@ -34,6 +34,12 @@ type Account struct {
 }
 
 var ADDRESSES = map[int]Addresses{
+	CHAIN_ID_ETH: {
+		Rysk:        common.HexToAddress("0x7a3ddeac7a0ae6dfa9391c764499a3564f3c2aad"),
+		MarginPool:  common.HexToAddress("0x684404f2aebad87a6803f13741b1d638bfe2c671"),
+		MMarket:     common.HexToAddress("0xc01c9ef5de5862354add9501a29e8765cff01c32"),
+		StrikeAsset: common.HexToAddress("0xdac17f958d2ee523a2206206994597c13d831ec7"),
+	},
 	CHAIN_ID_BASE_SEPOLIA: {
 		Rysk:        common.HexToAddress("0x0ff34dd648b68f09b199b60b91442e750fd13fdc"),
 		MarginPool:  common.HexToAddress("0xf0ac2edd8eb37b4ac75a2ed02eeae3a5c6bb8e8e"),
