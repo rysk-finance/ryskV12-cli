@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/urfave/cli/v2"
 )
@@ -32,6 +33,11 @@ var approveAction = &cli.Command{
 			Required: true,
 			Usage:    "private key of approving account",
 		},
+		&cli.StringFlag{
+			Name:     "asset",
+			Required: false,
+			Usage:    "address of the asset to approve (defaults to the chain's strike asset)",
+		},
 	},
 	Action: func(c *cli.Context) error {
 		return approve(c)
@@ -43,6 +49,11 @@ func approve(c *cli.Context) error {
 	rpc_url := c.String("rpc_url")
 	amount := c.String("amount")
 	pk := c.String("private_key")
+
+	asset := ADDRESSES[chain_id].StrikeAsset
+	if assetArg := c.String("asset"); assetArg != "" {
+		asset = common.HexToAddress(assetArg)
+	}
 
 	account, err := newAccountFromPrivateKey(pk)
 	if err != nil {
@@ -59,7 +70,7 @@ func approve(c *cli.Context) error {
 		return err
 	}
 
-	txHash, err := account.approve(c.Context, chain_id, *client, bigAmount)
+	txHash, err := account.approve(c.Context, chain_id, *client, bigAmount, asset)
 	if err != nil {
 		return err
 	}
